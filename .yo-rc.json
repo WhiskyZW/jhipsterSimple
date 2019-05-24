@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.fan.wei"
+    },
+    "jhipsterVersion": "6.0.1",
+    "applicationType": "monolith",
+    "baseName": "simpleJhipster",
+    "packageName": "com.fan.wei",
+    "packageFolder": "com/fan/wei",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzMzNTZhMTk0ZTc4OTRjZGE3ZTE0NGZhOGI0MDE2NGY2MzAzZTA3NTBjZTRjMWUyYjljMGIzMWFhOTYyNWM5MGMxMDA2YzYwOTNkNThhMWUxNWMyMjFlZmY2YmI0NmM1NDgyZmE3NTg2YmY3YTNiNDc2MGVhOGRmOGNjNGE1MTU=",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling"
+    ],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
