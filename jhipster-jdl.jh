@@ -1,5 +1,6 @@
 entity Country {
-	countryName String
+	countryName String,
+	note String
 }
 
 // an ignored comment

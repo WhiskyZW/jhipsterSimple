@@ -4,6 +4,10 @@
         {
             "fieldName": "countryName",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "String"
         }
     ],
     "relationships": [],

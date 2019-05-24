@@ -73,6 +73,7 @@ class CountryGatlingTest extends Simulation {
             .body(StringBody("""{
                 "id":null
                 , "countryName":"SAMPLE_TEXT"
+                , "note":"SAMPLE_TEXT"
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_country_url"))).exitHereIfFailed

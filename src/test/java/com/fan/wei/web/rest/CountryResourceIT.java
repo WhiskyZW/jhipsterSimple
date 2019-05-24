@@ -37,6 +37,9 @@ public class CountryResourceIT {
     private static final String DEFAULT_COUNTRY_NAME = "AAAAAAAAAA";
     private static final String UPDATED_COUNTRY_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_NOTE = "AAAAAAAAAA";
+    private static final String UPDATED_NOTE = "BBBBBBBBBB";
+
     @Autowired
     private CountryRepository countryRepository;
 
@@ -82,7 +85,8 @@ public class CountryResourceIT {
      */
     public static Country createEntity(EntityManager em) {
         Country country = new Country()
-            .countryName(DEFAULT_COUNTRY_NAME);
+            .countryName(DEFAULT_COUNTRY_NAME)
+            .note(DEFAULT_NOTE);
         return country;
     }
     /**
@@ -93,7 +97,8 @@ public class CountryResourceIT {
      */
     public static Country createUpdatedEntity(EntityManager em) {
         Country country = new Country()
-            .countryName(UPDATED_COUNTRY_NAME);
+            .countryName(UPDATED_COUNTRY_NAME)
+            .note(UPDATED_NOTE);
         return country;
     }
 
@@ -118,6 +123,7 @@ public class CountryResourceIT {
         assertThat(countryList).hasSize(databaseSizeBeforeCreate + 1);
         Country testCountry = countryList.get(countryList.size() - 1);
         assertThat(testCountry.getCountryName()).isEqualTo(DEFAULT_COUNTRY_NAME);
+        assertThat(testCountry.getNote()).isEqualTo(DEFAULT_NOTE);
     }
 
     @Test
@@ -151,7 +157,8 @@ public class CountryResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(country.getId().intValue())))
-            .andExpect(jsonPath("$.[*].countryName").value(hasItem(DEFAULT_COUNTRY_NAME.toString())));
+            .andExpect(jsonPath("$.[*].countryName").value(hasItem(DEFAULT_COUNTRY_NAME.toString())))
+            .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE.toString())));
     }
     
     @Test
@@ -165,7 +172,8 @@ public class CountryResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(country.getId().intValue()))
-            .andExpect(jsonPath("$.countryName").value(DEFAULT_COUNTRY_NAME.toString()));
+            .andExpect(jsonPath("$.countryName").value(DEFAULT_COUNTRY_NAME.toString()))
+            .andExpect(jsonPath("$.note").value(DEFAULT_NOTE.toString()));
     }
 
     @Test
@@ -189,7 +197,8 @@ public class CountryResourceIT {
         // Disconnect from session so that the updates on updatedCountry are not directly saved in db
         em.detach(updatedCountry);
         updatedCountry
-            .countryName(UPDATED_COUNTRY_NAME);
+            .countryName(UPDATED_COUNTRY_NAME)
+            .note(UPDATED_NOTE);
 
         restCountryMockMvc.perform(put("/api/countries")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -201,6 +210,7 @@ public class CountryResourceIT {
         assertThat(countryList).hasSize(databaseSizeBeforeUpdate);
         Country testCountry = countryList.get(countryList.size() - 1);
         assertThat(testCountry.getCountryName()).isEqualTo(UPDATED_COUNTRY_NAME);
+        assertThat(testCountry.getNote()).isEqualTo(UPDATED_NOTE);
     }
 
     @Test

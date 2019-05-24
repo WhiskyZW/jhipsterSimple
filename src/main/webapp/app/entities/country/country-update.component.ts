@@ -16,7 +16,8 @@ export class CountryUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    countryName: []
+    countryName: [],
+    note: []
   });
 
   constructor(protected countryService: CountryService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -32,7 +33,8 @@ export class CountryUpdateComponent implements OnInit {
   updateForm(country: ICountry) {
     this.editForm.patchValue({
       id: country.id,
-      countryName: country.countryName
+      countryName: country.countryName,
+      note: country.note
     });
   }
 
@@ -54,7 +56,8 @@ export class CountryUpdateComponent implements OnInit {
     const entity = {
       ...new Country(),
       id: this.editForm.get(['id']).value,
-      countryName: this.editForm.get(['countryName']).value
+      countryName: this.editForm.get(['countryName']).value,
+      note: this.editForm.get(['note']).value
     };
     return entity;
   }

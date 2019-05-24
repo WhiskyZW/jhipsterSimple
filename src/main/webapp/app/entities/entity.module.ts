@@ -39,6 +39,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'country',
         loadChildren: './country/country.module#SimpleJhipsterCountryModule'
+      },
+      {
+        path: 'country',
+        loadChildren: './country/country.module#SimpleJhipsterCountryModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

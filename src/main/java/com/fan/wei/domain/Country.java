@@ -23,6 +23,9 @@ public class Country implements Serializable {
     @Column(name = "country_name")
     private String countryName;
 
+    @Column(name = "note")
+    private String note;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +46,19 @@ public class Country implements Serializable {
 
     public void setCountryName(String countryName) {
         this.countryName = countryName;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public Country note(String note) {
+        this.note = note;
+        return this;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -67,6 +83,7 @@ public class Country implements Serializable {
         return "Country{" +
             "id=" + getId() +
             ", countryName='" + getCountryName() + "'" +
+            ", note='" + getNote() + "'" +
             "}";
     }
 }
