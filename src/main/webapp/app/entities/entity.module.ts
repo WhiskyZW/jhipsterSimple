@@ -43,6 +43,34 @@ import { RouterModule } from '@angular/router';
       {
         path: 'country',
         loadChildren: './country/country.module#SimpleJhipsterCountryModule'
+      },
+      {
+        path: 'book',
+        loadChildren: './book/book.module#SimpleJhipsterBookModule'
+      },
+      {
+        path: 'author',
+        loadChildren: './author/author.module#SimpleJhipsterAuthorModule'
+      },
+      {
+        path: 'library',
+        loadChildren: './library/library.module#SimpleJhipsterLibraryModule'
+      },
+      {
+        path: 'library',
+        loadChildren: './library/library.module#SimpleJhipsterLibraryModule'
+      },
+      {
+        path: 'admin',
+        loadChildren: './admin/admin.module#SimpleJhipsterAdminModule'
+      },
+      {
+        path: 'car',
+        loadChildren: './car/car.module#SimpleJhipsterCarModule'
+      },
+      {
+        path: 'owner',
+        loadChildren: './owner/owner.module#SimpleJhipsterOwnerModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

@@ -1,0 +1,43 @@
+{
+    "name": "Library",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "book",
+            "otherEntityRelationshipName": "library",
+            "relationshipName": "book"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "admin",
+            "otherEntityRelationshipName": "library",
+            "relationshipName": "admin",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190528030655",
+    "entityTableName": "library",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

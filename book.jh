@@ -1,0 +1,53 @@
+//
+// This is the entity model
+//
+
+entity Book {
+    name String required,
+    description String
+}
+
+entity Author {
+    name String required,
+    age Integer required,
+    sex String required
+}
+
+entity Library {
+    name String required,
+    address String required
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+    Author{book} to Book{writer(name) required},
+    Library{book} to Book
+}
+
+
+entity Admin {
+    name String required
+}
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+    Admin{library} to Library{admin},
+    Admin{author} to Author
+}
+
+entity Car {
+    name String
+}
+
+entity Owner {
+    name String,
+    age Integer
+}
+
+relationship ManyToOne {
+    Car{owner} to Owner
+}
